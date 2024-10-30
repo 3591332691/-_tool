@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Grid Overlay</title>
+    <style>
+        
+
+        #canvas-container {
+            border: 1px solid black;
+        }
+        .controls {
+            margin-top: 10px;
+        }
+        .control-group {
+            margin-bottom: 10px;
+        }
+        .control-group label {
+            display: inline-block;
+            width: 100px;
+        }
+        .control-group input[type="range"] {
+            width: 200px;
+        }
+        .control-group input[type="number"] {
+            width: 80px;
+        }
+        .lock-button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .lock-button:disabled {
+            background-color: #d6d6d6;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="file-input" accept="image/*">
+    <canvas id="canvas-container" width="500" height="500"></canvas>
+    <div class="controls">
+        <div class="control-group">
+            <label for="grid-size">Grid Size:</label>
+            <input type="range" id="grid-size" min="10" max="100" value="50" step="0.1">
+            <input type="number" id="grid-size-number" min="10" max="100" value="50" step="0.1">
+            <span id="grid-size-value">50</span>
+        </div>
+        <div class="control-group">
+            <label for="grid-x-offset">X Offset:</label>
+            <input type="range" id="grid-x-offset" min="-250" max="250" value="0" step="0.1">
+            <input type="number" id="grid-x-offset-number" min="-250" max="250" value="0" step="1">
+            <span id="grid-x-offset-value">0</span>
+        </div>
+        <div class="control-group">
+            <label for="grid-y-offset">Y Offset:</label>
+            <input type="range" id="grid-y-offset" min="-250" max="250" value="0" step="0.1">
+            <input type="number" id="grid-y-offset-number" min="-250" max="250" value="0" step="1">
+            <span id="grid-y-offset-value">0</span>
+        </div>
+        <button id="lock-button" class="lock-button">Lock</button>
+        <div id = countButton></div>
+        <div id = output_img></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/CFPscript.js') }}"></script>
+</body>
+</html>

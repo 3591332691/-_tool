@@ -1,0 +1,133 @@
+/* static/css/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.image-box {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    align-items: center;    /* 水平居中 */
+    justify-content: center; /* 垂直居中 */
+    height: 100px;          /* 设定一个高度以便可以看到垂直居中效果 */
+    border: 1px solid #ddd; /* 可选的边框 */
+    margin: 20px auto;      /* 居中容器自身 */
+    width: 110px;           /* 设定一个宽度以便可以看到水平居中效果 */
+}
+
+.slider-container input {
+    margin: 10px; /* 给输入框加点间距 */
+}
+
+
+/* static/css/styles.css */
+
+/* 模态窗口样式 */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed; /* 固定定位 */
+    z-index: 1; /* 在最上层显示 */
+    left: 0;
+    top: 0;
+    width: 100%; /* 宽度100% */
+    height: 100%; /* 高度100% */
+    overflow: auto; /* 如果内容超出窗口则滚动 */
+    background-color: rgb(0,0,0); /* 背景颜色 */
+    background-color: rgba(0,0,0,0.8); /* 背景透明度 */
+}
+
+/* 模态窗口内容 */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%; /* 设定宽度 */
+    max-width: 700px; /* 最大宽度 */
+}
+
+/* 关闭按钮 */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+/* 关闭按钮悬停效果 */
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#number-message {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 每行5个项目 */
+    gap: 10px; /* 每个项目之间的间距 */
+    padding: 10px; /* 容器内边距 */
+}
+
+/* 每个项目样式 */
+.color-item {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* 包含内边距和边框在宽度计算中 */
+    background-color: #f9f9f9; /* 背景颜色 */
+}
+
+/* 导出的按钮样式 */
+#export-button {
+    margin-bottom: 10px; /* 按钮和内容之间的间距 */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

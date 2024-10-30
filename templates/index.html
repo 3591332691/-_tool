@@ -1,0 +1,58 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Display</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Upload and Pixelate Image</h1>
+        <nav  id = 'category'>
+            <a href="{{ url_for('counts_from_photo') }}">像素图加工</a>
+        </nav>
+    </header>
+    <main>
+        <div class="image-container">
+            <div class="image-box">
+                <img id="uploaded-image" src="{{ url_for('static', filename='uploads/' + filename) if filename else url_for('static', filename='images/default.jpg') }}" alt="Uploaded Image" onclick="openModal()">
+            </div>
+        </div>
+
+            <!-- 模态窗口 -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modal-image">
+            <div id="caption"></div>
+        </div>
+
+        <!-- 选择模糊像素框-->
+        <div class="slider-container">
+            <label for="number-input">像素区块步长:</label>
+            <input type="number" id="number-input" min="0" max="200" step="5" value="60">
+        </div>
+        <button id="generate-btn" onclick="generatePhoto()">生成像素图片</button>
+
+        <div class="image-container">
+            <div class="image-box">
+                <img id="downloaded-image" src="{{ downloaded_image_path if downloaded_image_path else url_for('static', filename='images/default.jpg') }}" alt="Processed Image" onclick="openModal2()">
+            </div>
+        </div>
+
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Upload Image</button>
+        </form>
+        <div id = 'number-message'>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 My Flask App for 拼豆</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
